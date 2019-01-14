@@ -4,17 +4,23 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import MyMap  from '../components/MyMap'
-
-{/* <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css"></link> */}
-
+import {karnataka} from '../kgeojson'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <MyMap/>
-    </div>
+    <MyMap center={{lat:20.5937, lng: 78.9629}} 
+      style={{
+        fillColor: 'lime',
+        fillOpacity: 0.1,
+        color: 'green',
+        weight: 1,
+        opacity: 1,
+      }}
+      zoom={5}
+      geojson={karnataka}
+    />
     
     <Link to="/karnataka/">map</Link>
   </Layout>
