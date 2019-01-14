@@ -16,7 +16,7 @@ import {districts} from '../districts'
 // }
 const Karnataka = () => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="karnataka" />
     <KarnatakaMap center={{lat:15.3173, lng: 75.7139}} 
       style={{
         fillColor: '#4486f7',
