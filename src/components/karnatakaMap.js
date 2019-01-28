@@ -27,30 +27,6 @@ export default class KarnatakaMap extends Component {
     };
   }
 
-  // componentWillMount(){
-  //   this.setState({
-  //     center:this.props.center,
-  //     style:this.props.style,
-  //     zoom:this.props.zoom,
-  //     geojson:this.props.geojson
-  //   });
-  // }
-
-  // getRandomColor =()=> {
-  //   var letters = '0123456789ABCDEF';
-  //   var color = '#';
-  //   for (var i = 0; i < 6; i++) {
-  //     color += letters[Math.floor(Math.random() * 16)];
-  //   }
-  //   return color;
-  // }
-
-
-  // onEachFeature=(feature,layer)=>{
-  //   if(feature.properties && feature.properties.NAME_2){
-  //       layer.bindPopup(feature.properties.NAME_2)
-  //   }
-  // }
   render() {
     const position = [this.state.center.lat, this.state.center.lng];
     // if (typeof window !== 'undefined') {

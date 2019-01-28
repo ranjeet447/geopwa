@@ -32,10 +32,6 @@ export default class KarnatakaMap extends Component {
     }
   }
   
-  clickToFeature(e) {
-    var layer = e.target;
-    console.log("I clicked on " + layer.feature.properties);
-  }
   render() {
     const position = [this.state.center.lat, this.state.center.lng];
     // if (typeof window !== 'undefined') {
