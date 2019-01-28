@@ -29,14 +29,14 @@ export default class KarnatakaMap extends Component {
 
   render() {
     const position = [this.state.center.lat, this.state.center.lng];
-    // if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') {
       return (
         <Map id="map1" ref={m => { this.leafletMap = m; }} center={position} zoom={this.state.zoom} minZoom={5} touchZoom={true}  style={mapStyle}>
           <TileLayer url={basemapUrl} id='mapbox.light' />
           <GeoJSON  data={karnataka} style= {this.state.style} onclick={this.props.onclick}/>
         </Map>
       )
-    // }
-    // return null
+    }
+    return null
   }
 }
