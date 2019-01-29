@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
 import KarnatakaMap from './karnatakaMap'
-import DistrictsMap from './districtsMap'
-
+import DistrictsMap from './districtsMap' 
 export default class MyMap extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +31,8 @@ export default class MyMap extends Component {
       if (this.state.showDistricts) {
         return(
          <div>
-            <DistrictsMap></DistrictsMap>
-            <button onClick={this.outlineKarnataka}>Back</button>
+            <button onClick={this.outlineKarnataka} >&larr;</button>
+            <DistrictsMap onclick={this.outlineKarnataka.bind(this)}></DistrictsMap>
          </div>
         )
       }else{

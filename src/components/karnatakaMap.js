@@ -5,6 +5,7 @@ import { Map, TileLayer, GeoJSON } from 'react-leaflet'
 // const basemapUrl = `https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${mapboxAPIkey}`;
 const basemapUrl = `https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png`
 
+var Loader = require('react-loader');
 
 
 const mapStyle = {
@@ -24,17 +25,33 @@ export default class KarnatakaMap extends Component {
         opacity: 1,
       },
       zoom:5,
+      loaded:false
     };
+    // this.removeLoader=this.removeLoader.bind(this)
+  }
+
+  // removeLoader () {
+  //   this.setState({loaded:false });
+  // }
+
+  componentDidMount() {
+    this.map = this.refs.map.leafletElement;
+    this.map.on('load',this.removeLoader)
+    this.setState({loaded: true });
   }
 
   render() {
     const position = [this.state.center.lat, this.state.center.lng];
     if (typeof window !== 'undefined') {
       return (
-        <Map id="map1" ref={m => { this.leafletMap = m; }} center={position} zoom={this.state.zoom} minZoom={5} touchZoom={true}  style={mapStyle}>
-          <TileLayer url={basemapUrl} id='mapbox.light' />
-          <GeoJSON  data={karnataka} style= {this.state.style} onclick={this.props.onclick}/>
-        </Map>
+        <div>
+          <Map id="map1" ref='map' center={position} zoom={this.state.zoom} minZoom={5} touchZoom={true}  style={mapStyle}>
+            <Loader loaded={this.state.loaded}>
+              <TileLayer url={basemapUrl} id='mapbox.light'/>            
+              <GeoJSON  data={karnataka} style= {this.state.style} onclick={this.props.onclick}/>
+            </Loader>
+          </Map>
+        </div>
       )
     }
     return null
