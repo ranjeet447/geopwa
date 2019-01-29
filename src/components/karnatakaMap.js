@@ -27,17 +27,12 @@ export default class KarnatakaMap extends Component {
       zoom:5,
       loaded:false
     };
-    // this.removeLoader=this.removeLoader.bind(this)
+    this.removeLoader=this.removeLoader.bind(this)
   }
 
-  // removeLoader () {
-  //   this.setState({loaded:false });
-  // }
-
-  componentDidMount() {
-    this.map = this.refs.map.leafletElement;
-    this.map.on('load',this.removeLoader)
-    this.setState({loaded: true });
+  removeLoader () {
+    console.log('remove loader')
+    this.setState({loaded:true });
   }
 
   render() {
@@ -46,10 +41,10 @@ export default class KarnatakaMap extends Component {
       return (
         <div>
           <Map id="map1" ref='map' center={position} zoom={this.state.zoom} minZoom={5} touchZoom={true}  style={mapStyle}>
-            <Loader loaded={this.state.loaded}>
-              <TileLayer url={basemapUrl} id='mapbox.light'/>            
+            <TileLayer onLoad={this.removeLoader} url={basemapUrl} id='mapbox.light'/>
+            <Loader loaded={this.state.loaded} lines={100} color={'#02b3e4'} radius={20} length={1}>         
               <GeoJSON  data={karnataka} style= {this.state.style} onclick={this.props.onclick}/>
-            </Loader>
+            </Loader> 
           </Map>
         </div>
       )

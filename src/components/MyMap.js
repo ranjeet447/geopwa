@@ -12,6 +12,7 @@ export default class MyMap extends Component {
     this.outlineKarnataka=this.outlineKarnataka.bind(this)
   }
 
+  
   outlineKarnataka () {
     this.setState({
       showDistricts:false
