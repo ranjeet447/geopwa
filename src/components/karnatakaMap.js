@@ -30,6 +30,11 @@ export default class KarnatakaMap extends Component {
     this.removeLoader=this.removeLoader.bind(this)
   }
 
+  componentDidMount() {
+    this.map = this.refs.map.leafletElement; // <= this is the Leaflet Map object
+    // this.map.invalidateSize()
+  }
+
   removeLoader () {
     // console.log('remove loader')
     this.setState({loaded:true });

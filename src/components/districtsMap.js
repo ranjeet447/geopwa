@@ -31,6 +31,7 @@ export default class KarnatakaMap extends Component {
 
   componentDidMount() {
     this.map = this.refs.leafletMap.leafletElement; // <= this is the Leaflet Map object
+    this.map.invalidateSize()
   }
 
   zoomToFeature(e) {
