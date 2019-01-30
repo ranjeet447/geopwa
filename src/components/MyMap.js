@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import KarnatakaMap from './karnatakaMap'
 import DistrictsMap from './districtsMap'
 
-import { Button } from 'react-bootstrap';
-
 export default class MyMap extends Component {
   constructor(props) {
     super(props);
@@ -19,14 +17,14 @@ export default class MyMap extends Component {
     this.setState({
       showDistricts:false
     },()=>{
-      console.log(this.state)
+      // console.log(this.state)
     });
   }
   outlineDistricts () {
     this.setState({
       showDistricts:true
      },()=>{
-      console.log(this.state)
+      // console.log(this.state)
      });
   }
 
@@ -34,7 +32,7 @@ export default class MyMap extends Component {
       if (this.state.showDistricts) {
         return(
          <div>
-            <Button variant="primary" onClick={this.outlineKarnataka} >&larr;</Button>
+            <button variant="primary" onClick={this.outlineKarnataka} >&larr;</button>
             <DistrictsMap onclick={this.outlineKarnataka.bind(this)}></DistrictsMap>
          </div>
         )

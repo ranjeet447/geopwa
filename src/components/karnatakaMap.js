@@ -31,7 +31,7 @@ export default class KarnatakaMap extends Component {
   }
 
   removeLoader () {
-    console.log('remove loader')
+    // console.log('remove loader')
     this.setState({loaded:true });
   }
 
@@ -43,7 +43,7 @@ export default class KarnatakaMap extends Component {
           <Map id="map1" ref='map' center={position} zoom={this.state.zoom} minZoom={5} touchZoom={true}  style={mapStyle}>
             <TileLayer onLoad={this.removeLoader} url={basemapUrl} id='mapbox.light'/>
             <Loader loaded={this.state.loaded} lines={100} color={'#02b3e4'} radius={20} length={1}>         
-              <GeoJSON  data={karnataka} style= {this.state.style} onclick={this.props.onclick}/>
+              <GeoJSON  data={karnataka} style={this.state.style} onclick={this.props.onclick}/>
             </Loader> 
           </Map>
         </div>
